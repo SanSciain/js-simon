@@ -1,20 +1,29 @@
 
+
+const button = document.querySelector("button");
 const printNumber = document.getElementById("numbers");
+let numbersArray;
 
-const numbersArray=[];
-let i = 0;
+button.addEventListener("click",game);
 
-while (i<5){
-    number = getRndInteger(1,99);
-    if(!(numbersArray.includes(number))){
-        numbersArray.push(number);
-        i++;
+function game(){
+    button.style.pointerEvents="none";
+    numbersArray=[];
+    
+    let i = 0;
+
+    while (i<5){
+        number = getRndInteger(1, 99);
+        if(!(numbersArray.includes(number))){
+            numbersArray.push(number);
+            i++;
+        }
     }
+
+    printNumber.innerHTML= numbersArray;
+    setTimeout(gameStart,3000);
 }
 
-printNumber.innerHTML= numbersArray;
-
-setTimeout(gameStart,3000);
 
 
 function gameStart(){
@@ -34,6 +43,7 @@ function guessNumbers(){
         }
     }
     printNumber.innerHTML= `hai indovinato ${guessedNumbers.length} numeri : ${guessedNumbers}`;
+    button.style.pointerEvents="initial"
 }
 
 
