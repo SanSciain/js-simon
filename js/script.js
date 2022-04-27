@@ -38,7 +38,7 @@ function guessNumbers(){
     const guessedNumbers = [];
     for (let j=0; j<5;j++){
         guessNumber=parseInt(prompt("Che numero ricordi?"));
-        if (numbersArray.includes(guessNumber)){
+        if (numbersArray.includes(guessNumber) && !(guessedNumbers.includes(guessNumber))){
             guessedNumbers.push(guessNumber);
         }
     }
